@@ -4,7 +4,7 @@ const fs = require('fs');
 const notesFile = require('../db/db.json');
 const { v4: uuidv4 } = require('uuid');
 
-router.get('/api/notes', (req, res) => {
+router.get('/api/notes/', (req, res) => {
   const notes = JSON.parse(
     fs.readFileSync(path.join(__dirname, '../db/db.json'))
   );

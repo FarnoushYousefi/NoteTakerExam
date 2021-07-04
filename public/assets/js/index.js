@@ -44,7 +44,7 @@ const saveNote = (note) =>
 
 const deleteNote = (id) => {
   console.log(id);
-  fetch(`/api/notes/${id}`, {
+  return fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -73,10 +73,14 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
-  saveNote(newNote).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  saveNote(newNote)
+    .then(() => {
+      getAndRenderNotes();
+      renderActiveNote();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 // Delete the clicked note
@@ -92,10 +96,14 @@ const handleNoteDelete = (e) => {
     activeNote = {};
   }
 
-  deleteNote(noteId).then(() => {
-    getAndRenderNotes();
-    renderActiveNote();
-  });
+  deleteNote(noteId)
+    .then(() => {
+      getAndRenderNotes();
+      renderActiveNote();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 // Sets the activeNote and displays it
