@@ -25,9 +25,14 @@ router.post('/api/notes', (req, res) => {
   res.send('created');
 });
 router.delete('/api/notes/:id', (req, res) => {
+  console.log(
+    'readFileSyn',
+    fs.readFileSync(path.join(__dirname, '../db/db.json'))
+  );
   const notes = JSON.parse(
     fs.readFileSync(path.join(__dirname, '../db/db.json'))
   );
+  console.log('with Parse', notes);
   const delNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
   fs.writeFileSync(
     path.join(__dirname, '../db/db.json'),
