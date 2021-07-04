@@ -22,3 +22,9 @@ https://github.com/FarnoushYousefi/NoteTakerExam
 
 # deployed in Heroku
 https://majestic-big-bend-81783.herokuapp.com/
+
+# implement the project
+I have implement id with Express Node.js, and try to import the nodemon library to have all the chnges online without run the server each time.
+use "uuidv4" to generate the random ID.
+Implement the Delete function through the filter array method.
+
